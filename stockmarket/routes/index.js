@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request-promise-native');
+const key = process.env.STOCK_KEY;
 
 var stockData = function(req, res, next){
   const options = {
-    uri: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=MGYEGLIHVOSNG1H2',
+    uri: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=${key}',
     headers:{
       'User-Agent': 'Request-Promise'
     }
