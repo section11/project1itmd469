@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p= data
+  aside
+    ul
+      each stock in data
+        li= !{stock['Meta Data']['2. Symbol']}
+  aside/
+  section
+    h1= title
+      each stock in data
+        article
+         !{stock['Meta Data']['2. Symbol']}
+         ul
+          each price in !{stock['Time Series (1min)']}
+  section/
