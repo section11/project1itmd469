@@ -2,15 +2,15 @@ extends layout
 
 block content
   aside
-    ul
-      each stock in data
-        li= !{stock['Meta Data']['2. Symbol']}
-  aside/
+    each stock in data
+      section(
+        class='stockList', id= stock['Meta Data']['2. Symbol'])= stock['Meta Data']['2. Symbol']
   section
     h1= title
-      each stock in data
-        article
-         !{stock['Meta Data']['2. Symbol']}
-         ul
-          each price in !{stock['Time Series (1min)']}
+    each stock in data
+      p= stock['Meta Data']['2. Symbol']
+      each date in stock['Time Series (1min)']
+        p= date['4. close']
+        p= data['5. volume']
+        hr
   section/

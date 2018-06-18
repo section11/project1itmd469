@@ -22,7 +22,7 @@ let readStockList = function (req, res, next) {
 
 function requestStock (stockName) {
   let options = {
-    uri: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockName}&interval=1min&apikey=${key}',
+    uri: 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+ stockName + '&interval=1min&apikey=${key}',
     headers: {
       'User-Agent': 'Request-Promise'
     }
@@ -58,6 +58,7 @@ router.use(stockData);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  console.log(req.data);
   res.render('index', { title: 'Stock Market Data', data: req.data });
 });
 

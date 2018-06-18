@@ -33,6 +33,7 @@ body {
 	background-color: #DCDBD9;
 	color: #2C2C2C;
 	font: normal 100% Cambria, Georgia, serif;
+	display: flex;
 }
 ol, ul {
 	list-style: none;
@@ -56,11 +57,6 @@ h1{
 	font-weight: normal;
 }
 
-main{
-	display: flex;
-	align-items: center;
-}
-
 aside{
 	display: flex;
 	flex-direction: column;
@@ -68,7 +64,30 @@ aside{
 
 .stockList{
 	display: flex;
+	font-size: 1.25em; /*20 / 16 */
+	font-weight: bold;
 }
 section{
 	display: flex;
+	flex-direction: column;
+}
+@media only screen and (min-width: 57.5em) { /*920 / 16 */
+  main{
+		max-width: 57.5em;
+	}
+}
+
+@media only screen and (min-width: 56em){ /*896 / 16 */
+	body{
+		justify-content: center;
+	}
+}
+
+@media only screen and (min-width: 26.25){ /*420 / 16 */
+	main{
+		display: inline-flex;
+	}
+	aside{
+		min-width: 15em;
+	}
 }
